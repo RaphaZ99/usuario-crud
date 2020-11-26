@@ -38,7 +38,7 @@ export class ListUsuarioComponent implements OnInit {
         this.usuarioService.deletaUsuario(id).subscribe(paciente => {
           this.msgs = [];
           this.msgs = [{ severity: 'info', summary: 'Concluído', detail: 'Registro Excluido' }];
-          window.location.reload;
+          window.location.reload();
 
         },
 

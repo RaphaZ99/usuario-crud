@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.projeto.crud.model.Usuario;
 import com.projeto.crud.repository.UsuarioRepository;
 import com.projeto.crud.service.ValidacaoUsuario;
+import com.projeto.crud.util.Validadores;
  
 
 @RestController
@@ -55,6 +56,11 @@ public class UsuarioController {
 		if (validacao != null) {
 
 			return validacao;
+			
+		}if(!Validadores.isValidCPF(object.getCpf())) {
+			
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("CPF inválido.");
+			
 		}
 
 		usuarioDB.save(object);

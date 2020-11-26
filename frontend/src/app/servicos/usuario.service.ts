@@ -36,4 +36,9 @@ export class UsuarioService {
     const url = `${environment.urlCrudUsuario}usuario/`;
     return this.http.put<Usuarios>(url,usuario);
   }
+
+  validarNome(nome: string) {
+    return (new RegExp('[0-9]').test(nome));
+ }
+
 }

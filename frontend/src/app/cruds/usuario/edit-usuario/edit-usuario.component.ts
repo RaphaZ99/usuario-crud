@@ -72,10 +72,10 @@ export class EditUsuarioComponent implements OnInit {
       return;
 
     }
-    if (this.validarNome()) {
+    if (this.usuarioService.validarNome(this.nome)) {
 
       this.msgs = [];
-      this.msgs.push({ severity: 'error', detail: 'O nome não pode conter números!' });
+      this.msgs.push({ severity: 'error', detail: 'O nome não pode conter números ou espaços!' });
       return;
     }
 
@@ -91,9 +91,5 @@ export class EditUsuarioComponent implements OnInit {
 
     this.atualizaPaciente(usuario);
   }
-
-  validarNome() {
-     return (new RegExp('^[0-9]*$').test(this.nome));
-  }
-
+ 
 }

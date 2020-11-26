@@ -31,6 +31,12 @@ export class CreateUsuarioComponent implements OnInit {
       this.msgs.push({ severity: 'error', detail: 'Precisa preencher todos os campos!' });
       return;
     }
+    if (this.usuarioService.validarNome(this.nome)) {
+
+      this.msgs = [];
+      this.msgs.push({ severity: 'error', detail: 'O nome não pode conter números ou espaços!' });
+      return;
+    }
 
 
     const usuario = {
