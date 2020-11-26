@@ -38,7 +38,7 @@ export class UsuarioService {
   }
 
   validarNome(nome: string) {
-    return (new RegExp('[0-9]').test(nome));
+    return (new RegExp('[0-9\\s]').test(nome));
  }
 
 }
